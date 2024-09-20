@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ひらかな練習</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-900 min-h-screen">
+  <!-- Container -->
+   <div class="flex justify-center">
+       <h2 class="text-lg text-white font-semibold text-center" style="margin:1rem 1rem;">ようこそ！ <br> Welcome  to Hirakanji Type
+    <span class="text-center text-white">Salah satu platform latihan untuk menguasai hiragana katakana dan kanji dengan metode type</span>
+    </h2>
+   </div>
+<div class="responsive  flex items-center justify-center">
+    <div class="max-w-lg  mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <!-- Card for the text -->
+      <div class="p-4 relative">
+          <!-- Icon to regenerate text in the top-right corner -->
+          <button id="regenerate-button" class="absolute top-1 right-2 text-gray-500 hover:text-gray-700">
+              <svg width="30px" height="30px" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill="#000000" fill-rule="evenodd" d="M126.645 38.17c5.11-6.317 14.804-7.687 21.426-1.868a79.223 79.223 0 0 1 23.621 36.826 79.01 79.01 0 0 1-.578 47.096 79.246 79.246 0 0 1-27.272 38.441 79.654 79.654 0 0 1-44.308 16.233 79.695 79.695 0 0 1-45.728-11.671 79.326 79.326 0 0 1-31.04-35.482A79.02 79.02 0 0 1 17.4 80.951a79.118 79.118 0 0 1 13.323-31.142l-3.116-3.103C16.18 35.32 24.367 16 40.32 16h39.514c9.9 0 18 8.007 18 17.978v39.368c0 16.099-19.432 23.965-30.712 12.727l-2.721-2.71a33.174 33.174 0 0 0 .442 25.823 33.377 33.377 0 0 0 13.065 14.929 33.635 33.635 0 0 0 37.988-1.922 33.33 33.33 0 0 0 11.473-16.167 33.168 33.168 0 0 0 .243-19.773 33.308 33.308 0 0 0-9.4-15.004c-5.509-5.055-6.948-14.064-1.607-20.667l10.041-12.412ZM55.377 74.373a45.178 45.178 0 0 0-1.508 39.67 45.381 45.381 0 0 0 17.759 20.298 45.633 45.633 0 0 0 26.182 6.682 45.608 45.608 0 0 0 25.367-9.292 45.327 45.327 0 0 0 15.601-21.989 45.167 45.167 0 0 0 .331-26.925 45.313 45.313 0 0 0-12.785-20.41c-1.219-1.119-1.43-2.993-.39-4.278l10.04-12.412c1.04-1.285 2.934-1.492 4.176-.4a67.214 67.214 0 0 1 20.044 31.247 67.003 67.003 0 0 1-.49 39.944 67.248 67.248 0 0 1-23.144 32.619 67.648 67.648 0 0 1-37.633 13.786 67.696 67.696 0 0 1-38.842-9.912 67.327 67.327 0 0 1-26.345-30.114 67.018 67.018 0 0 1-4.554-39.688 67.164 67.164 0 0 1 17.76-34.165l-10.87-10.83C32.296 34.44 34.973 28 40.319 28h39.514c3.314 0 6 2.676 6 5.978v39.368c0 5.325-6.463 7.992-10.242 4.226L62.506 64.536a45.334 45.334 0 0 0-7.129 9.837Z" clip-rule="evenodd"/>
+                  <title>regenerate new text</title>
+              </svg>
+          </button>
+          <h2 class="text-lg font-semibold text-center" style="margin:1rem 1rem;" id="romaji-text">Loading...</h2>
+      </div>
+  
+      <!-- Input area for the user to type in hiragana/katakana -->
+      <div class="p-4">
+        <textarea id="kana-input" rows="4" class="w-full p-2 border border-gray-300 rounded-md mb-2" placeholder="Type here..."></textarea>
+        <div class="mb-5">
+          <label for="category" class="block mb-2 text-sm font-bold text-black">Choose Category :</label>
+           <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+           <option selected="">Select Category</option>
+          <option value="hiragana-katakana">Hiragana & Katakana</option>
+          <option value="Kanji">Kanji</option>
+       </select>
+        </div>
+        <div class="mb-5">
+          <label for="lengt-text" class="block mb-2 text-sm font-bold text-black">Category text :</label>
+           <select id="lengt-text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+           <option selected="">Category text </option>
+          <option value="satukalimat">Kalimat Pendek</option>
+          <option value="textwacana5kalimatmudah">Teks wacana - Easy</option>
+          <option value="textwacana5kalimatmedium">Teks wacana - Medium</option>
+          <option value="textwacana5kalimatkompleks">Teks wacana - Kompleks</option>
+       </select>
+        </div>
+        <div id="kanji" class="mb-5 hidden">
+          <label for="level-kanji" class="block mb-2 text-sm font-bold text-black">Level Kanji :</label>
+           <select id="level-kanji" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+           <option selected="">Level Kanji</option>
+          <option value="N3">N3</option>
+          <option value="N4">N4</option>
+          <option value="N5">N5</option>
+       </select>
+        </div>
+        <button id="submit-button" class="mt-4 w-full text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-bold rounded-lg text-sm px-5 py-2.5 text-center me-2">Submit</button>
+      </div>
+      <div id="modal-output" class="container p-5 mx-auto hidden">
+        <div style="box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.3);" class="overflow-x-auto relative shadow-md sm:rounded-lg bg-white p-5">
+            <h3 class="text-lg font-bold mb-4">Analysis Result</h3>
+            <p id="analysis-result" class="mb-4 text-lg p-6"></p>
+            <button id="close-modal" class="mt-4 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-md">Close</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+  <!-- <script src="main.js"></script> -->
+   <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+</body>
+</html>

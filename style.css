@@ -1,0 +1,5 @@
+@media screen and (max-width: 640px) {
+    .responsive {
+        margin:0 1rem;
+    }
+}
