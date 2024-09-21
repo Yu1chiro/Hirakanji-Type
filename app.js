@@ -19,7 +19,7 @@ async function fetchText() {
 
     let promptText;
     if (categorySelect.value === 'Kanji') {
-        promptText = `Berikan teks 読解 singkat ${lengthTextSelect.value} bahasa Jepang acak dalam huruf kanji level ${kanjiLevelSelect.value}. Berikan hanya teks Jepang tanpa terjemahan atau penjelasan tambahan.`;
+        promptText = `Berikan teks 読解  level JLPT ${kanjiLevelSelect.value} singkat ${lengthTextSelect.value} bahasa Jepang dalam bentuk hiragana. Berikan hanya teks Jepang tanpa terjemahan atau penjelasan tambahan.`;
     } else {
         promptText = `Berikan teks 読解 singkat ${lengthTextSelect.value} bahasa Jepang acak dalam huruf romaji saja, tanpa terjemahan atau catatan tambahan.`;
     }
@@ -92,27 +92,27 @@ async function checkUserInput() {
     let prompt;
     if (categorySelect.value === 'Kanji') {
         prompt = `
-Anda adalah seorang guru pendidikan bahasa jepang sekaligus ahli konversi kanji ke hiragana dengan ketelitian tinggi. Tugas Anda adalah memverifikasi apakah hiragana pengguna benar-benar sesuai dengan teks kanji yang diberikan, tanpa membuat asumsi atau koreksi tambahan.
+Anda adalah seorang ahli konversi kanji ke hiragana dengan ketelitian tinggi. Tugas Anda adalah memverifikasi apakah kanji pengguna benar-benar sesuai dengan teks hiragana yang diberikan, tanpa membuat asumsi atau koreksi tambahan.
 
-hiragana pengguna: "${userInput}"
-Teks kanji yang benar: "${correctText}"
+Kanji pengguna: "${userInput}"
+Teks hiragana yang benar: "${correctText}"
 
 Instruksi:
-1. Konversikan hiragana pengguna ke dalam bentuk kanji.
-2. Bandingkan hasil konversi tersebut dengan teks kanji yang benar, karakter per karakter.
-3. Jika dan hanya jika ada perbedaan antara hasil konversi dan teks kanji yang benar, berikan umpan balik dalam format berikut:
-   - Kesalahan: [bagian hiragana yang tidak sesuai]
-   - Seharusnya: [bagian kanji yang benar]
-   - Penjelasan: [penjelasan singkat tentang perbedaannya]
+1. Konversikan kanji pengguna ke dalam bentuk hiragana, mempertahankan struktur kalimat, spasi, dan tanda baca persis seperti dalam input kanji.
+2. Bandingkan hasil konversi tersebut dengan teks hiragana yang benar, karakter per karakter, termasuk spasi dan tanda baca.
+3. Jika dan hanya jika ada perbedaan antara hasil konversi dan teks hiragana yang benar, berikan umpan balik dalam format berikut:
+   - Kesalahan: [bagian kanji yang tidak sesuai setelah dikonversi ke hiragana]
+   - Seharusnya: [bagian hiragana yang benar]
+   - Penjelasan: [penjelasan singkat tentang perbedaannya, fokus hanya pada perbedaan karakter]
 
-4. Jika tidak ada perbedaan sama sekali, nyatakan bahwa hiragana pengguna sudah benar dan sesuai dengan teks kanji yang diberikan.
-5. Fokus hanya pada kesesuaian antara hiragana dan kanji, bukan pada tata bahasa atau makna.
-6. Lakukan verifikasi ganda sebelum memberikan umpan balik untuk memastikan keakuratan analisis Anda.
-7. Gunakan bahasa Indonesia yang formal dan mudah dipahami dalam penjelasan Anda.
-8. Berikan terjemahan bahasa indonesia dari teks hiragana yg di inputkan 
+4. Jika tidak ada perbedaan sama sekali antara hasil konversi dan teks hiragana yang diberikan, nyatakan bahwa kanji pengguna sudah benar dan sesuai.
+5. Fokus hanya pada kesesuaian karakter per karakter antara kanji (setelah dikonversi ke hiragana) dan teks hiragana yang diberikan. Jangan mempertimbangkan tata bahasa, makna, atau aturan penulisan lainnya.
+6. Jangan membuat asumsi tentang pemisahan kata, bentuk konjugasi, atau perubahan bentuk lainnya. Konversi harus dilakukan secara harfiah, karakter per karakter.
+7. Lakukan verifikasi ganda sebelum memberikan umpan balik untuk memastikan keakuratan analisis Anda.
+8. Gunakan bahasa Indonesia yang formal dan mudah dipahami dalam penjelasan Anda.
+9. Berikan terjemahan bahasa Indonesia dari teks kanji yang diinputkan.
 
-Penting: Jangan membuat asumsi atau koreksi di luar apa yang diberikan dalam input. Tujuan utama adalah memverifikasi kesesuaian antara hiragana dan teks kanji yang diberikan.
-
+Penting: Jangan membuat asumsi atau koreksi di luar apa yang diberikan dalam input. Tujuan utama adalah memverifikasi kesesuaian karakter per karakter antara kanji (setelah dikonversi ke hiragana) dan teks hiragana yang diberikan.
 Berikan analisis Anda secara ringkas dan akurat.`;
     } else {
         prompt = `
