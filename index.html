@@ -10,13 +10,29 @@
   <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-900 min-h-screen">
+    <section style="background-image: url('img/baner.jpeg');" 
+    class="bg-center bg-cover bg-no-repeat bg-gray-700 bg-blend-multiply min-h-[calc(100vh)]">
+    <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-[calc(100vh/4)]">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Welcome to Hirakanji Type </h1>
+        <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+            Platform latihan mengetik huruf hiragana, katakana kanji dan pastinya sudah ter integrasi dengan Gemini AI untuk meningkatkan penguasaan hiragana, katakana dan kanji
+            Btw sudah hafal hiragana, katakana kanji belum? kalo sudah langsung aja cuss latihan disini
+        </p>
+        <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+            <a href="#started" 
+               class="inline-flex justify-center items-center py-3 px-5 text-base font-bold text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                Get started
+                <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+           <a href="" class="focus:outline-none ms-0 xl:ms-4 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-sm py-3 px-8 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Guide</a>
+        </div>
+    </div>
+</section>
+
   <!-- Container -->
-   <div class="flex justify-center">
-       <h2 class="text-lg text-white font-semibold text-center" style="margin:1rem 1rem;">ようこそ！ <br> Welcome  to Hirakanji Type
-    <span class="text-center text-white">Salah satu platform latihan untuk menguasai hiragana katakana dan kanji dengan metode type</span>
-    </h2>
-   </div>
-<div class="responsive  flex items-center justify-center">
+<div id="started" class="min-h-[calc(100vh)] responsive  flex items-center justify-center" style="padding: 5rem 0;">
     <div class="max-w-lg  mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
       <!-- Card for the text -->
       <div class="p-4 relative">
@@ -44,7 +60,7 @@
           <label for="lengt-text" class="block mb-2 text-sm font-bold text-black">Category text :</label>
            <select id="lengt-text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
            <option selected="">Category text </option>
-          <option value="tigakalimat">Kalimat Pendek</option>
+          <option value="satukalimatsaja">Kalimat Pendek</option>
           <option value="textwacana5kalimatmudah">Teks wacana - Easy</option>
           <option value="textwacana5kalimatmedium">Teks wacana - Medium</option>
           <option value="textwacana5kalimatkompleks">Teks wacana - Kompleks</option>
@@ -59,7 +75,7 @@
           <option value="N5">N5</option>
        </select>
         </div>
-        <button id="submit-button" class="mt-4 w-full text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-bold rounded-lg text-sm px-5 py-2.5 text-center me-2">Submit</button>
+        <button id="submit-button" class="mt-4 w-full text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-bold rounded-lg text-sm px-5 py-3 text-center me-2">Analyze</button>
       </div>
       <div id="modal-output" class="container p-5 mx-auto hidden">
         <div style="box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.3);" class="overflow-x-auto relative shadow-md sm:rounded-lg bg-white p-5">
