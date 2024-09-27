@@ -14,10 +14,11 @@
     class="bg-center bg-cover bg-no-repeat bg-gray-700 bg-blend-multiply min-h-[calc(100vh)]">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-[calc(100vh/4)]">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Welcome to Hirakanji Type </h1>
-        <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
+        <p class="mb-4 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">
             Platform latihan mengetik huruf hiragana, katakana kanji dan pastinya sudah ter integrasi dengan Gemini AI untuk meningkatkan penguasaan hiragana, katakana dan kanji
-            Btw sudah hafal hiragana, katakana kanji belum? kalo sudah langsung aja cuss latihan disini
+            <br>Btw sudah hafal hiragana, katakana kanji belum? kalo sudah langsung aja cuss latihan disini
         </p>
+        <p class="text-white text-md mb-8">&copy; Yuii || 2024 </p>
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
             <a href="#started" 
                class="inline-flex justify-center items-center py-3 px-5 text-base font-bold text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
@@ -26,14 +27,38 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
             </a>
-           <a href="" class="focus:outline-none ms-0 xl:ms-4 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-sm py-3 px-8 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Guide</a>
+           <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="focus:outline-none ms-0 xl:ms-4 text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-bold rounded-lg text-sm py-3 px-8 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Guide</a>
         </div>
     </div>
 </section>
+<!-- Modal guide  -->
+<div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative p-4 w-full max-w-2xl max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  How to use?
+              </h3>
+              <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                  <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+              </button>
+          </div>
+          <!-- Modal body -->
+          <div class="p-4 md:p-5 space-y-4">
+            <img src="img/Guide hirakanji.png" class="rounded" alt="">
+          </div>
+      </div>
+  </div>
+</div>
 
   <!-- Container -->
 <div id="started" class="min-h-[calc(100vh)] responsive  flex items-center justify-center" style="padding: 5rem 0;">
-    <div class="max-w-lg  mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+    <div class="max-w-full  mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
       <!-- Card for the text -->
       <div class="p-4 relative">
           <!-- Icon to regenerate text in the top-right corner -->
@@ -42,18 +67,29 @@
                   <title>regenerate new text</title>
               </svg>
           </button>
-          <h2 class="text-lg font-semibold text-center" style="margin:1rem 1rem;" id="romaji-text">Loading...</h2>
+          <div style="border: 3px solid aqua; margin-top: 2rem;">
+            <h2 class="text-lg font-semibold text-center" style="margin:1rem 1rem;" id="romaji-text">Loading...</h2>
+          </div>
       </div>
   
       <!-- Input area for the user to type in hiragana/katakana -->
       <div class="p-4">
-        <textarea id="kana-input" rows="4" class="w-full p-2 border border-gray-300 rounded-md mb-2" placeholder="Type here..."></textarea>
+          <textarea id="kana-input" rows="5" class="w-full p-2 rounded-md mb-2" style="border: 2px solid gray;" placeholder="Type here..."></textarea>
         <div class="mb-5">
           <label for="category" class="block mb-2 text-sm font-bold text-black">Choose Category :</label>
            <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
            <option selected="">Select Category</option>
           <option value="hiragana-katakana">Hiragana & Katakana</option>
           <option value="Kanji">Kanji</option>
+       </select>
+        </div>
+        <div id="kanji" class="mb-5 hidden">
+          <label for="level-kanji" class="block mb-2 text-sm font-bold text-black">Level Kanji :</label>
+           <select id="level-kanji" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+           <option selected="">Level Kanji</option>
+          <option value="N3">N3</option>
+          <option value="N4">N4</option>
+          <option value="N5">N5</option>
        </select>
         </div>
         <div class="mb-5">
@@ -66,15 +102,7 @@
           <option value="textwacana5kalimatkompleks">Teks wacana - Kompleks</option>
        </select>
         </div>
-        <div id="kanji" class="mb-5 hidden">
-          <label for="level-kanji" class="block mb-2 text-sm font-bold text-black">Level Kanji :</label>
-           <select id="level-kanji" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block p-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-           <option selected="">Level Kanji</option>
-          <option value="N3">N3</option>
-          <option value="N4">N4</option>
-          <option value="N5">N5</option>
-       </select>
-        </div>
+        <button id="generate-button" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-lg text-sm px-5 py-3 text-center me-2 mb-2" >Generate Text</button>
         <button id="submit-button" class="mt-4 w-full text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-bold rounded-lg text-sm px-5 py-3 text-center me-2">Analyze</button>
       </div>
       <div id="modal-output" class="container p-5 mx-auto hidden">
@@ -89,7 +117,7 @@
 
 
   <!-- <script src="main.js"></script> -->
-   <script src="app.js"></script>
+   <script src="main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
 </body>
 </html>
