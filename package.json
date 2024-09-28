@@ -1,0 +1,17 @@
+{
+  "name": "hirakanji-type",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exps.js",
+  "type":"module",
+  "scripts": {
+     "start": "node exps.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  }
+}

@@ -1,1 +1,4 @@
 /main
+/node_modules
+.env
+/onlymain
